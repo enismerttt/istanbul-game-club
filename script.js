@@ -63,12 +63,14 @@ function initSmoothHops(){
 
 /* ---------- data: games ---------- */
 const GAMES = [
-  { name: 'Bosphorus Intrigue', glyph: '🗺️', desc: 'A trading & negotiation epic set among rival merchant houses on the strait.', diff: 3, players: '3–6 players · 90 min', tag: 'Strategy' },
-  { name: 'Grand Bazaar', glyph: '🏺', desc: 'Fast-paced bidding and bluffing over rare goods and reputations.', diff: 2, players: '2–5 players · 45 min', tag: 'Family' },
-  { name: 'Siege of Embers', glyph: '🏰', desc: 'Cooperative fortress defense narrated as a live, branching campaign.', diff: 4, players: '2–4 players · 120 min', tag: 'Co-op' },
-  { name: 'Whispers of the Court', glyph: '👑', desc: 'Hidden-role intrigue where every accusation reshapes the story.', diff: 3, players: '5–8 players · 60 min', tag: 'Social' },
-  { name: 'Cartographer\'s Oath', glyph: '🧭', desc: 'Draft, draw, and race to chart the most coveted trade routes.', diff: 2, players: '1–4 players · 40 min', tag: 'Puzzle' },
-  { name: 'Ashes of Constantinople', glyph: '⚔️', desc: 'A weighty legacy war-game campaign spanning multiple sessions.', diff: 5, players: '2–4 players · 180 min', tag: 'Legacy' },
+  { name: 'Blood on the Clocktower', glyph: '🕰️', desc: 'A live social deduction game where a demon hides among you — and only sharp questions, sharper lies, and a watchful Storyteller decide who survives the night.', why: 'Because the best lies are the ones your friends believe.', diff: 4, players: '5–15 players · 90 min', tag: 'Social Deduction' },
+  { name: 'Catan', glyph: '🌾', desc: 'The legendary settle-and-trade classic — negotiate for brick and wheat, out-build your rivals, and turn a handful of hexes into an empire.', why: 'Because trading a sheep for a road has never felt this cutthroat.', diff: 2, players: '3–4 players · 75 min', tag: 'Strategy Classic' },
+  { name: 'Ticket to Ride', glyph: '🚂', desc: 'Claim railway routes across the map, collect the cards you need, and race opponents to complete your secret destinations before the tracks run out.', why: 'Because nothing stings quite like watching your dream route get stolen.', diff: 2, players: '2–5 players · 60 min', tag: 'Family Strategy' },
+  { name: 'Splendor', glyph: '💎', desc: 'A fast, elegant engine-builder — collect gem tokens, acquire discount cards, and out-pace the table to attract the wealthiest patrons.', why: 'Because turning glass tokens into an empire is dangerously addictive.', diff: 2, players: '2–4 players · 30 min', tag: 'Engine Builder' },
+  { name: 'Flip 7', glyph: '🎴', desc: 'A push-your-luck card game of nerve and numbers — flip, stack, and bust or bank, in rounds fast enough to play twice before your drink cools.', why: 'Because knowing exactly when to stop is the hardest call at the table.', diff: 2, players: '3–8 players · 20 min', tag: 'Push Your Luck' },
+  { name: 'Tabletop RPGs', glyph: '🎭', desc: 'Live storytelling sessions guided by a professional narrator — build a character, shape a world, and make choices that write the story as you go.', why: 'Because your character\'s story is limited only by your imagination.', diff: 3, players: '3–6 players · 3+ hrs', tag: 'Narrative' },
+  { name: 'Azul', glyph: '🀄', desc: 'A meditative tile-drafting game of pattern and precision — draft colorful tiles, tile your wall with care, and watch a masterpiece take shape.', why: 'Because your board will look this good, and so will your score.', diff: 2, players: '2–4 players · 45 min', tag: 'Strategy · Aesthetics' },
+  { name: 'Dixit', glyph: '🎨', desc: 'A dreamlike guessing game built on surreal illustrated cards — craft a clue too obvious and everyone guesses it, too obscure and no one does.', why: 'Because the perfect clue is one only half the table gets.', diff: 1, players: '3–6 players · 30 min', tag: 'Creative · Party' },
 ];
 
 function renderGames(){
@@ -85,6 +87,7 @@ function renderGames(){
           <span class="game-card__players">${g.players}</span>
         </div>
         <p class="game-card__desc">${g.desc}</p>
+        <p class="game-card__why">${g.why}</p>
         <div class="game-card__footer">
           <div class="diff" aria-label="Difficulty ${g.diff} of 5">
             <span class="diff__label">Difficulty</span>
@@ -110,11 +113,11 @@ function pipRow(active){
 
 /* ---------- data: events ---------- */
 const EVENTS = [
-  { name: 'Bosphorus Intrigue — Night Session', date: 'Fri, Jul 24', loc: 'Beyoğlu Lounge', seats: '4 left', price: '₺650' },
-  { name: 'Siege of Embers — Campaign Ep. 2', date: 'Sat, Jul 25', loc: 'Karaköy Hall', seats: '2 left', price: '₺900' },
-  { name: 'Grand Bazaar — Newcomer Table', date: 'Sun, Jul 26', loc: 'Beyoğlu Lounge', seats: '7 left', price: '₺500' },
-  { name: 'Whispers of the Court', date: 'Thu, Jul 30', loc: 'Cihangir Study', seats: '6 left', price: '₺550' },
-  { name: 'Ashes of Constantinople — Ep. 1', date: 'Sat, Aug 1', loc: 'Karaköy Hall', seats: '3 left', price: '₺950' },
+  { name: 'Blood on the Clocktower — Night', date: 'Fri, Jul 24', loc: 'Café, Cihangir', seats: '4 left', price: '₺650' },
+  { name: 'Tabletop RPG — Campaign Ep. 2', date: 'Sat, Jul 25', loc: 'Rooftop, Karaköy', seats: '2 left', price: '₺900' },
+  { name: 'Catan — Newcomer Table', date: 'Sun, Jul 26', loc: 'Seaside Park, Moda', seats: '7 left', price: '₺500' },
+  { name: 'Splendor & Azul Double Night', date: 'Thu, Jul 30', loc: 'Café, Kadıköy', seats: '6 left', price: '₺550' },
+  { name: 'Dixit & Flip 7 — Open Air', date: 'Sat, Aug 1', loc: 'Bosphorus Park, Bebek', seats: '3 left', price: '₺450' },
 ];
 
 function renderEvents(){

@@ -335,7 +335,12 @@ section{ position:relative; z-index:1; padding:120px 0; }
 .game-card__top{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:10px; }
 .game-card__name{ font-family:var(--font-display); font-size:1.28rem; color:var(--ivory); }
 .game-card__players{ font-family:var(--font-mono); font-size:0.7rem; color:var(--ivory-faint); white-space:nowrap; padding-top:4px; }
-.game-card__desc{ color:var(--ivory-dim); font-size:0.92rem; margin:0 0 18px; min-height:44px; }
+.game-card__desc{ color:var(--ivory-dim); font-size:0.92rem; margin:0 0 12px; min-height:44px; }
+.game-card__why{
+  font-family:var(--font-mono); font-size:0.78rem; font-style:normal;
+  color:var(--gold-soft); margin:0 0 18px; line-height:1.5;
+  padding-left:14px; border-left:2px solid var(--gold-dim);
+}
 
 .game-card__footer{ display:flex; align-items:center; justify-content:space-between; padding-top:16px; border-top:1px solid var(--line); }
 .diff{ display:flex; align-items:center; gap:8px; }
@@ -385,6 +390,37 @@ section{ position:relative; z-index:1; padding:120px 0; }
   content:''; position:absolute; left:0; top:8px; width:9px; height:9px;
   background:var(--gold);
   clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+}
+
+/* =========================================================
+   COMMUNITY
+   ========================================================= */
+.community{ background:linear-gradient(180deg, var(--navy-900), var(--navy-950)); }
+.community__grid{
+  max-width:1100px; margin:0 auto 48px; padding:0 24px;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+}
+.community__card{
+  background:var(--navy-800); border:1px solid var(--line);
+  border-radius:var(--radius-lg); padding:32px 26px; text-align:center;
+  transition:transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
+}
+.community__card:hover{
+  transform:translateY(-6px);
+  border-color:var(--teal-dim);
+  box-shadow:0 20px 40px -20px rgba(0,0,0,0.6);
+}
+.community__glyph{ font-size:2.4rem; display:block; margin-bottom:16px; }
+.community__card h3{ font-size:1.12rem; margin-bottom:10px; }
+.community__card p{ color:var(--ivory-dim); font-size:0.9rem; margin:0; }
+
+.community__note{
+  max-width:680px; margin:0 auto; padding:0 24px;
+  text-align:center; color:var(--ivory-dim); font-size:1rem;
+}
+
+@media (max-width:760px){
+  .community__grid{ grid-template-columns:1fr; }
 }
 
 /* =========================================================
